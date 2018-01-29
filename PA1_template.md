@@ -158,18 +158,10 @@ Make a histogram of the total number of steps taken each day and Calculate and r
 
 ```r
 filledDailyDat <- with(filledDat, aggregate(list(steps = filledDat$steps), by=list(date = filledDat$date), FUN=sum))
-summary(filledDailyDat)
+hist(filledDailyDat$steps)
 ```
 
-```
-##       date                steps      
-##  Min.   :2012-10-01   Min.   :   41  
-##  1st Qu.:2012-10-16   1st Qu.: 9819  
-##  Median :2012-10-31   Median :10766  
-##  Mean   :2012-10-31   Mean   :10766  
-##  3rd Qu.:2012-11-15   3rd Qu.:12811  
-##  Max.   :2012-11-30   Max.   :21194
-```
+![](PA1_template_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
 Is seen from the original data and the filled in data, the impact on the mean, median etc. are negligible.
