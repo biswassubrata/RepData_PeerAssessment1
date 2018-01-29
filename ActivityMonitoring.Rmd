@@ -1,0 +1,37 @@
+---
+title: "Activity Monitoring"
+author: "Subrata Biswas"
+date: "January 28, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Read the data file
+```{r echo = TRUE}
+dat <- read.table("activity.csv", sep=",", header=TRUE, stringsAsFactors = FALSE)
+dat$date <- as.Date(dat$date)
+dim(dat)
+head(dat)
+```
+Make a histogram of the total number of steps taken each day
+```{r echo = TRUE}
+aggregate(dat$steps, by=date, FUN=sum)
+```
+Calculate and report the mean and median total number of steps taken per day
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
